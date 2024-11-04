@@ -26,10 +26,8 @@
         "styles": ["./src/styles.scss"],
         "scripts": [],
         "server": "src/main.server.ts",
-        "prerender": true,
-        "ssr": {
-          "entry": "server.ts"
-        }
+        "prerender": false,
+        "ssr": false
       },
       "configurations": {
         "production": {
@@ -83,7 +81,7 @@
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectName}"],
       "options": {
-        "jestConfig": "jest.config.ts"
+        "jestConfig": "jest.config.app.ts"
       }
     },
     "serve-static": {
