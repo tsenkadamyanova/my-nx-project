@@ -1,0 +1,14 @@
+<form (submit)="onSubmit($event)">
+  <label for="name">Enter expression: </label>
+  <input
+    type="text"
+    name="expression"
+    [formControl]="name"
+    (keyup)="validate($event)"
+  />
+
+  <p class="error">
+    @if((result$ | async) === false;) { {{ message$ | async }}
+    }
+  </p>
+</form>

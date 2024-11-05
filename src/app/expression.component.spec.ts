@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { UiComponent } from './ui.component';
+import { ExpressionComponent } from './expression.component';
 
-describe('UiComponent', () => {
-  let component: UiComponent;
-  let fixture: ComponentFixture<UiComponent>;
+describe('ExpressionComponent', () => {
+  let component: ExpressionComponent;
+  let fixture: ComponentFixture<ExpressionComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [UiComponent],
+      imports: [ExpressionComponent],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(UiComponent);
+    fixture = TestBed.createComponent(ExpressionComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

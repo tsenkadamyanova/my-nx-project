@@ -1,4 +1,8 @@
 <section class="section">
+  <h1>Expression Test {{ expression | json }}</h1>
+
+  <app-expression></app-expression>
+
   <header><h1>Section A: Map Reduce</h1></header>
 
   <ol>
@@ -71,5 +75,67 @@
     <li>Example 1 (parseNumber('123')): {{ parserTest | json }}</li>
     <li>Example 2 (parseNumber('1 + 2')): {{ parserTest2 | json }}</li>
     <li>Example 3 (parseNumber("+ 2")): {{ parserTest3 | json }}</li>
+
+    <li>Example 1 (parseOperator('+')): {{ parserOperatorTest | json }}</li>
+    <li>Example 2 (parseOperator('1 +')): {{ parserOperatorTest2 | json }}</li>
+    <li>Example 3 (parseOperator('+ 2')): {{ parserOperatorTest3 | json }}</li>
+
+    <!-- 16 -->
+    <li>
+      Example 1 (parseOpenParenthesis('('): {{ parseOpenParenthesis | json }}
+    </li>
+    <li>
+      Example 2 (parseOpenParenthesis('+ (')):
+      {{ parseOpenParenthesis2 | json }}
+    </li>
+    <li>
+      Example 3 (parseOpenParenthesis(')')): {{ parseOpenParenthesis3 | json }}
+    </li>
+
+    <!-- 17 -->
+    <li>
+      Example 1 parseCloseParenthesis(')'): {{ parseCloseParenthesis | json }}
+    </li>
+    <li>
+      Example 2 parseCloseParenthesis('+ )'):
+      {{ parseCloseParenthesis2 | json }}
+    </li>
+    <li>
+      Example 3 parseCloseParenthesis('()'): {{ parseCloseParenthesis3 | json }}
+    </li>
+
+    <!-- 18 -->
+    <li>
+      parseCharacter( '(', 'OPEN_PARENTHESIS' ):
+      {{ parseOpenParenthesisParseCharacter2 | json }}
+    </li>
+    <li>
+      parseCharacter( ')', 'CLOSE_PARENTHESIS' ):
+      {{ parseCloseParenthesisParseCharacter2 | json }}
+    </li>
+    <!-- 20 -->
+    <li>choice : {{ choice | json }}</li>
+    <li>
+      choice2 choice(parseNumber, parseOperator)("+2"): {{ choice2 | json }}
+    </li>
+    <li>
+      choice3 choice(parseNumber, parseOperator)("(+") : {{ choice3 | json }}
+    </li>
+    <!-- 21 -->
+    <li>parseOperator2: {{ parseOperator2 | json }}</li>
+
+    <!-- 22 -->
+    <li>choiceN: {{ choiceN | json }}</li>
+    <li>choiceN2: {{ choiceN2 | json }}</li>
+
+    <!-- 23 -->
+    <li>zip(parseNumber, parseOperator)("1+"): {{ zip | json }}</li>
+
+    <li>zip(parseNumber, parseOperator)("+1"): {{ zip2 | json }}</li>
+    <li>zip(parseNumber, parseOperator)("1+2+3"): {{ zip3 | json }}</li>
+
+    <!-- 24 -->
+    <li>doUntil: {{ doUntil | json }}</li>
+    <li>doUntil2: {{ doUntil2 | json }}</li>
   </ul>
 </section>
