@@ -1,6 +1,5 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { cubes } from 'core/src/lib/core/helpers/cubes';
 
 import {
   factorial,
@@ -22,6 +21,8 @@ import {
   sumMap2,
   sumScquares2,
   sumSquares,
+  cubes,
+  parseNumber,
 } from '@my-nx-project/core';
 
 @Component({
@@ -57,4 +58,8 @@ export class HomeComponent {
   readonly showSumCubes3 = sumCubes3(1, 5);
   readonly showSumCubes4 = sumMap2(cubes)(1, 5);
   readonly showSumFactorial3 = sumMap2(factorial)(1, 5);
+
+  readonly parserTest = parseNumber('123');
+  readonly parserTest2 = parseNumber('1 + 2');
+  readonly parserTest3 = parseNumber('+ 2');
 }
