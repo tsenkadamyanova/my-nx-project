@@ -1,7 +1,7 @@
 import { evaluate } from '@alansuprnation/evaluator';
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { ExpressionComponent } from './expression.component';
+import { CalculatorComponent } from '../calculator/calculator.component';
 
 import {
   factorial,
@@ -40,7 +40,7 @@ import {
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, ExpressionComponent],
+  imports: [CommonModule, CalculatorComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })

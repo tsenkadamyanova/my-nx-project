@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { ExpressionComponent } from './expression.component';
-import { HomeComponent } from './home.component';
+import { CalculatorComponent } from './components/calculator/calculator.component';
+import { HomeComponent } from './components/home/home.component';
 import { NxWelcomeComponent } from './nx-welcome.component';
 
 @Component({
@@ -10,7 +10,7 @@ import { NxWelcomeComponent } from './nx-welcome.component';
     NxWelcomeComponent,
     RouterModule,
     HomeComponent,
-    ExpressionComponent,
+    CalculatorComponent,
   ],
   selector: 'app-root',
   templateUrl: './app.component.html',

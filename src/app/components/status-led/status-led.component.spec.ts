@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { ExpressionComponent } from './expression.component';
+import { StatusLedComponent } from './status-led.component';
 
-describe('ExpressionComponent', () => {
-  let component: ExpressionComponent;
-  let fixture: ComponentFixture<ExpressionComponent>;
+describe('StatusLedComponent', () => {
+  let component: StatusLedComponent;
+  let fixture: ComponentFixture<StatusLedComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ExpressionComponent],
+      imports: [StatusLedComponent],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(ExpressionComponent);
+    fixture = TestBed.createComponent(StatusLedComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

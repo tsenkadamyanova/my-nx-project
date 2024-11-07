@@ -1,0 +1,98 @@
+:host {
+    margin: 20px;
+}
+.error {
+    color: red;
+}
+.calculator {
+    display: flex;
+    padding: 20px;
+    gap: 20px;
+
+    &__header {
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    &__form {
+
+        background-color: #000;
+        padding: 20px;
+        border-radius: 10px;
+
+        h2 {
+            color: #fff;;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        input {
+            padding: 5px 10px;
+            border-radius: 5px;
+            width:300px;
+            height:75px;
+            font-size: 3em;
+            font-family: "DotGothic16", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+            background-color: #9C9C5E;
+            text-align: right;
+        }
+    }
+    &__history {
+        padding: 0 30px;
+
+        ul {
+            padding: 0;
+            margin: 0;
+        }
+        li {
+            list-style: none;
+            padding: 10px 0;
+            
+        }
+    }
+    &__buttons {
+        padding: 20px 0;
+
+    }
+
+    &__btn-group {
+        display: flex;
+        gap: 10px;
+    }
+
+    &__btn {
+        border-radius: 10px;
+        padding: 20px;
+        margin: 2px;
+        width: 70px;
+        height: 70px;
+        text-align: center;
+        box-sizing: border-box;
+        font-size: 26px;
+
+        &--submit{
+            flex: 0 0 153px;
+            background-color: #a0a0a0;
+            color: #fff;
+        }
+    }
+
+    &__input {
+        position: relative;
+    }
+    &__expression-message {
+        font-style: italic;
+    }
+} 
+.danger {
+    background-color: #ff3535;
+    color: #fff;
+}
+.action {
+    background-color: #bcbcbc;
+    color: #fff;
+}
