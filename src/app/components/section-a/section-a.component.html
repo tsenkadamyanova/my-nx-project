@@ -1,0 +1,93 @@
+<mat-card appearance="outlined" class="section">
+  <mat-card-header> <h4>Section A: Map Reduce</h4> </mat-card-header>
+  <mat-card-content>
+    <mat-list>
+      <mat-list-item>
+        <span matListItemTitle>sumSquares(1, 5) : </span>
+        <span matListItemLine>The sum square is: {{ showSumSquares }}</span>
+      </mat-list-item>
+      <!-- 1 -->
+      <mat-list-item>
+        <span matListItemTitle>sumCubes(1, 5)</span>
+        <span matListItemLine>The sum cubes is: {{ showSumCubes }}</span>
+      </mat-list-item>
+      <mat-list-item>
+        <span matListItemTitle>sumFactorial(1, 5) </span>
+        <span matListItemLine></span>
+      </mat-list-item>
+      <mat-list-item>
+        <span matListItemTitle><strong>Write sumMap function:</strong></span>
+        <span matListItemLine></span>
+      </mat-list-item>
+      <mat-list-item>
+        <span matListItemTitle
+          >5. Refactor the sumInt, sumSquares, sumCubes, sumFactorial as
+          constant using the sumMap</span
+        >
+        <p matListItemLine>The sum int 2 is: {{ showSum2 }}</p>
+        <p matListItemLine>The sum square 2 is: {{ showSumSquares2 }}</p>
+        <p matListItemLine>The sum cubes 2 is: {{ showSumCubes2 }}</p>
+        <p matListItemLine>The sum factorial 2 is: {{ showSumFactorial2 }}</p>
+      </mat-list-item>
+      <mat-list-item>
+        <span matListItemTitle>prodInts(1,5)</span>
+        <span matListItemLine>The prod ints result is: {{ showProdInts }}</span>
+      </mat-list-item>
+      <mat-list-item>
+        <span matListItemTitle>prodSquares(1, 5)</span>
+        <span matListItemLine
+          >The prod squares result is: {{ showProdSquares }}</span
+        >
+      </mat-list-item>
+      <mat-list-item>
+        <span matListItemTitle> prodCubes(1, 5):</span>
+        <span matListItemLine
+          >The prod cubes result is: {{ showProdCubes }}</span
+        >
+      </mat-list-item>
+      <mat-list-item>
+        <span matListItemTitle>prodFactorial(1, 5)</span>
+        <span matListItemLine
+          >The prod factorials result is: {{ showProdFactorial }}</span
+        >
+      </mat-list-item>
+      <mat-list-item>
+        <span matListItemTitle>Write prodMap function:</span>
+        <span matListItemLine></span>
+      </mat-list-item>
+      <mat-list-item>
+        <span matListItemTitle>Title</span>
+
+        <p matListItemLine>The pod int 2 is: {{ showProdInts2 }}</p>
+        <p matListItemLine>The pod square 2 is: {{ showProdSquares2 }}</p>
+        <p matListItemLine>The pod cubes 2 is: {{ showProdCubes2 }}</p>
+        <p matListItemLine>The pod factorial 2 is: {{ showProdFactorial2 }}</p>
+      </mat-list-item>
+      <mat-list-item>
+        <span matListItemTitle><strong>Write mapReduce function:</strong></span>
+        <span matListItemLine></span>
+      </mat-list-item>
+      <mat-list-item>
+        <span matListItemTitle
+          ><strong>Refactor mapReduce2 function:</strong></span
+        >
+        <span matListItemLine></span>
+      </mat-list-item>
+      <mat-list-item>
+        <span matListItemTitle
+          ><strong
+            >Rewrite the sumMap and prodMap as functions of the
+            mapReduce2:</strong
+          ></span
+        >
+        <span matListItemLine></span>
+        <p matListItemLine>{{ showSumCubes3 }}</p>
+        <!-- TODO: Need to add all examples here for sum and prod -->
+        <p matListItemLine>sumMap2(cubes)(1, 5) => {{ showSumCubes4 }}</p>
+        <p matListItemLine>
+          sumMap2(factorial)(1, 5) => {{ showSumFactorial3 }}
+        </p>
+      </mat-list-item>
+    </mat-list>
+  </mat-card-content>
+</mat-card>
