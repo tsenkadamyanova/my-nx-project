@@ -1,179 +1,186 @@
 <section class="calculator">
-  <form (submit)="onSubmit($event)" class="calculator__form">
-    <legend class="calculator__header">
-      <h2>Calculator</h2>
+  <header class="calculator__title">
+    <h4>Expression Test {{ expression | json }}</h4>
+  </header>
+  <div class="calculator__container">
+    <form (submit)="onSubmit($event)" class="calculator__form">
+      <legend class="calculator__header">
+        <h2>Calculator</h2>
 
-      @if(success$ | async) {
+        @if(success$ | async) {
 
-      <app-status-led [color]="'green'"></app-status-led>
-      } @else {
-      <app-status-led [color]="'red'"></app-status-led>
+        <app-status-led [color]="'green'"></app-status-led>
+        } @else {
+        <app-status-led [color]="'red'"></app-status-led>
+        }
+      </legend>
+
+      <div class="calculator__input">
+        <input type="text" name="expression" [formControl]="name" readonly />
+      </div>
+
+      <div class="calculator__buttons">
+        <div class="calculator__btn-group">
+          <button class="calculator__btn danger" (click)="clearValue()">
+            C
+          </button>
+
+          <button
+            class="calculator__btn action"
+            type="button"
+            (click)="appendInput('(')"
+          >
+            (
+          </button>
+          <button
+            class="calculator__btn action"
+            type="button"
+            (click)="appendInput(')')"
+          >
+            )
+          </button>
+
+          <button
+            class="calculator__btn action"
+            type="button"
+            (click)="appendInput('/')"
+          >
+            /
+          </button>
+        </div>
+        <div class="calculator__btn-group">
+          <button
+            class="calculator__btn success"
+            type="button"
+            (click)="appendInput('7')"
+          >
+            7
+          </button>
+          <button
+            class="calculator__btn success"
+            type="button"
+            (click)="appendInput('8')"
+          >
+            8
+          </button>
+          <button
+            class="calculator__btn success"
+            type="button"
+            (click)="appendInput('9')"
+          >
+            9
+          </button>
+          <button
+            class="calculator__btn action"
+            type="button"
+            (click)="appendInput('*')"
+          >
+            *
+          </button>
+        </div>
+        <div class="calculator__btn-group">
+          <button
+            class="calculator__btn success"
+            type="button"
+            (click)="appendInput('4')"
+          >
+            4
+          </button>
+          <button
+            class="calculator__btn success"
+            type="button"
+            (click)="appendInput('5')"
+          >
+            5
+          </button>
+          <button
+            class="calculator__btn success"
+            type="button"
+            (click)="appendInput('6')"
+          >
+            6
+          </button>
+          <button
+            class="calculator__btn action"
+            type="button"
+            (click)="appendInput('-')"
+          >
+            -
+          </button>
+        </div>
+        <div class="calculator__btn-group">
+          <button
+            class="calculator__btn success"
+            type="button"
+            (click)="appendInput('1')"
+          >
+            1
+          </button>
+          <button
+            class="calculator__btn success"
+            type="button"
+            (click)="appendInput('2')"
+          >
+            2
+          </button>
+          <button
+            class="calculator__btn success"
+            type="button"
+            (click)="appendInput('3')"
+          >
+            3
+          </button>
+          <button
+            class="calculator__btn action"
+            type="button"
+            (click)="appendInput('+')"
+          >
+            +
+          </button>
+        </div>
+        <div class="calculator__btn-group">
+          <button
+            class="calculator__btn success"
+            type="button"
+            (click)="appendInput('0')"
+          >
+            0
+          </button>
+          <button
+            class="calculator__btn success"
+            type="button"
+            (click)="appendInput('.')"
+          >
+            .
+          </button>
+          <button
+            class="calculator__btn calculator__btn--submit primary"
+            type="submit"
+            (click)="onSubmit($event)"
+          >
+            =
+          </button>
+        </div>
+      </div>
+    </form>
+    <div class="calculator__history">
+      <h2>History</h2>
+
+      @if(history) {
+      <ul>
+        @for (item of history | slice:0:5; track $index) {
+        <li>{{ item.expression }} = {{ item.value }}</li>
+        } @if(history.length > 0) {
+        <li><button (click)="clear()">Clear history</button></li>
+        }
+      </ul>
+      } @if (history.length === 0) {
+      <p>No history yet</p>
       }
-    </legend>
 
-    <div class="calculator__input">
-      <input type="text" name="expression" [formControl]="name" readonly />
-    </div>
-
-    <div class="calculator__buttons">
-      <div class="calculator__btn-group">
-        <button class="calculator__btn danger" (click)="clearValue()">C</button>
-
-        <button
-          class="calculator__btn action"
-          type="button"
-          (click)="appendInput('(')"
-        >
-          (
-        </button>
-        <button
-          class="calculator__btn action"
-          type="button"
-          (click)="appendInput(')')"
-        >
-          )
-        </button>
-
-        <button
-          class="calculator__btn action"
-          type="button"
-          (click)="appendInput('/')"
-        >
-          /
-        </button>
+      <div class="calculator__expression-message">
+        Current: {{ message$ | async }}
       </div>
-      <div class="calculator__btn-group">
-        <button
-          class="calculator__btn success"
-          type="button"
-          (click)="appendInput('7')"
-        >
-          7
-        </button>
-        <button
-          class="calculator__btn success"
-          type="button"
-          (click)="appendInput('8')"
-        >
-          8
-        </button>
-        <button
-          class="calculator__btn success"
-          type="button"
-          (click)="appendInput('9')"
-        >
-          9
-        </button>
-        <button
-          class="calculator__btn action"
-          type="button"
-          (click)="appendInput('*')"
-        >
-          *
-        </button>
-      </div>
-      <div class="calculator__btn-group">
-        <button
-          class="calculator__btn success"
-          type="button"
-          (click)="appendInput('4')"
-        >
-          4
-        </button>
-        <button
-          class="calculator__btn success"
-          type="button"
-          (click)="appendInput('5')"
-        >
-          5
-        </button>
-        <button
-          class="calculator__btn success"
-          type="button"
-          (click)="appendInput('6')"
-        >
-          6
-        </button>
-        <button
-          class="calculator__btn action"
-          type="button"
-          (click)="appendInput('-')"
-        >
-          -
-        </button>
-      </div>
-      <div class="calculator__btn-group">
-        <button
-          class="calculator__btn success"
-          type="button"
-          (click)="appendInput('1')"
-        >
-          1
-        </button>
-        <button
-          class="calculator__btn success"
-          type="button"
-          (click)="appendInput('2')"
-        >
-          2
-        </button>
-        <button
-          class="calculator__btn success"
-          type="button"
-          (click)="appendInput('3')"
-        >
-          3
-        </button>
-        <button
-          class="calculator__btn action"
-          type="button"
-          (click)="appendInput('+')"
-        >
-          +
-        </button>
-      </div>
-      <div class="calculator__btn-group">
-        <button
-          class="calculator__btn success"
-          type="button"
-          (click)="appendInput('0')"
-        >
-          0
-        </button>
-        <button
-          class="calculator__btn success"
-          type="button"
-          (click)="appendInput('.')"
-        >
-          .
-        </button>
-        <button
-          class="calculator__btn calculator__btn--submit primary"
-          type="submit"
-          (click)="onSubmit($event)"
-        >
-          =
-        </button>
-      </div>
-    </div>
-  </form>
-  <div class="calculator__history">
-    <h2>History</h2>
-
-    @if(history) {
-    <ul>
-      @for (item of history | slice:0:5; track $index) {
-      <li>{{ item.expression }} = {{ item.value }}</li>
-      } @if(history.length > 0) {
-      <li><button (click)="clear()">Clear history</button></li>
-      }
-    </ul>
-    } @if (history.length === 0) {
-    <p>No history yet</p>
-    }
-
-    <div class="calculator__expression-message">
-      Current: {{ message$ | async }}
     </div>
   </div>
 </section>

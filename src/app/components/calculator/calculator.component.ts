@@ -1,10 +1,10 @@
-import { evaluate } from "@alansuprnation/evaluator";
-import { CommonModule } from "@angular/common";
-import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
-import { FormControl, ReactiveFormsModule } from "@angular/forms";
-import { BehaviorSubject, distinctUntilChanged, map } from "rxjs";
-import { StorageService } from "../../services/storage.service";
-import { StatusLedComponent } from "../status-led/status-led.component";
+import { evaluate } from '@alansuprnation/evaluator';
+import { CommonModule } from '@angular/common';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { FormControl, ReactiveFormsModule } from '@angular/forms';
+import { BehaviorSubject, distinctUntilChanged, map } from 'rxjs';
+import { StorageService } from '../../services/storage.service';
+import { StatusLedComponent } from '../status-led/status-led.component';
 
 import {
   ChangeDetectionStrategy,
@@ -31,6 +31,9 @@ type HistoryResult = {
 })
 export class CalculatorComponent implements OnInit {
   constructor(private readonly storage: StorageService) {}
+
+  readonly expression = evaluate('1+2+sin(24+cos(23))');
+
   readonly name = new FormControl('');
 
   // TODO : revise this subjects
@@ -110,6 +113,15 @@ export class CalculatorComponent implements OnInit {
             : [{ expression, value }]
         );
       });
+
+    this.updateValue(expression);
+  }
+
+  private updateValue(current: string) {
+    const getExpression = this.getHistory().find(
+      ({ expression }) => expression === current
+    );
+    this.name.setValue(`${current}=${getExpression?.value}`);
   }
 
   private getHistory(): HistoryResult[] {
